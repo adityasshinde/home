@@ -1,0 +1,181 @@
+<!-- // An Interactive Landing Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@300&family=Baloo+Thambi+2:wght@500&family=Bree+Serif&family=Comfortaa:wght@300&family=Fredoka+One&family=Inknut+Antiqua:wght@300&family=Josefin+Sans:ital,wght@1,700&family=Yatra+One&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Landing Page</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: 100vh;
+            width: 100vw;
+            font-family: 'Inknut Antiqua', serif;
+            background-image: url("back\ 1.jpg");
+        }
+        #a{
+            text-decoration: none;
+            color: white;
+            background-color: red;
+            padding: 0px 5px;
+            border-radius: 8px;
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+        #a1{
+            text-decoration: none;
+            color: white;
+            background-color: rgb(12, 104, 241);
+            padding: 0px 5px;
+            border-radius: 8px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            
+        }
+        h1{
+            font-family: 'Bree Serif', serif;
+            font-size: 3.5rem;
+        }
+        #time{
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 1.5rem;
+       
+        }
+        span{
+            font-size: 1.2rem;
+            animation: ani1 3s ease-in-out 2s 1 forwards normal;
+        }
+        #ans{
+            background: transparent;
+            color: white;
+            text-align: center;
+           font-family: 'Inknut Antiqua', serif;
+            font-size: 1.1rem;
+        }
+        p{
+            animation: ani1 4s ease-in-out 2s 1 forwards normal;
+        }
+        #Welcome{font-family: 'Bree Serif', serif;
+animation: ani1 2s ease-in-out 2s 1 forwards normal;
+}
+@keyframes ani1{
+from{
+opacity: 0;
+}
+to{
+ opacity: 100%;
+}
+}
+    </style>
+</head>
+<body>
+    <h1 id="Welcome">Welcome to the Plateform</h1>
+   
+    <time id="time" ></time>
+    <p><span id="greetings"><span id="name" contenteditable="true"></span></span></p>
+    <p id="question">How's your mood today ?</p>
+    <p id="def"><input type="text" name="answer" id="ans" placeholder="Type your Answer"></p>
+    <a href="/" id="a">Dashboard</a>
+    <a href="/" id="a1"> Contact</a>
+    <script>
+        
+        function displaytime(){
+            const time = new Date();
+            const hours = time.getHours();
+            const hour=hours%12 || 12;
+            const minute = time.getMinutes();
+            const second = time.getSeconds();
+            const AmPm=true;
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+        document.getElementById('time').innerHTML = `${zero(hour)}<span>:</span>${zero(minute)}<span>:</span>${zero( second )} <span><span>${AmPm ? ampm : ''}`;
+
+  setTimeout(displaytime, 1000);}
+  
+  function zero(n){
+      if (n<10) {
+         return (n='0'+n);
+      }
+      else{
+        return n;
+      }
+  }
+ 
+
+
+// Background image and Greetings
+function grtandimg(){
+   let time=new Date();
+    let hours=time.getHours();
+    if (hours<5) {
+        document.body.style.backgroundImage="url('back 7.jpg')";
+   document.body.style.color="white";
+   document.getElementById('greetings').innerHTML='Good Night !! ';
+    }
+else if (hours>=5 && hours<12) {
+   document.body.style.backgroundImage="url('back 2.jpg')";
+   document.body.style.color="black";
+   document.getElementById('Welcome').style.color="white";
+   document.getElementById('greetings').innerHTML='Good Morning, Breakfast Time !!';
+   document.getElementById('ans').style.color="black";
+} 
+else if (hours>=12 && hours<14) {
+   document.body.style.backgroundImage="url('back 3.jpg')";
+   document.body.style.color="black";
+   document.getElementById('greetings').innerHTML='Good Afternoon !! ';
+   document.getElementById('ans').style.color="black";
+} 
+else if (hours>=14 && hours<16) {
+   document.body.style.backgroundImage="url('back 4.jpg')";
+   document.body.style.color="white";
+   document.getElementById('greetings').innerHTML='Good Afternoon, Lunch Time !! ';
+} 
+else if (hours>=16 && hours<19) {
+   document.body.style.backgroundImage="url('back 5.jpg')";
+   document.body.style.color="white";
+   document.getElementById('greetings').innerHTML='Good Evening !! ';
+} 
+else if (hours>=19 && hours<22) {
+   document.body.style.backgroundImage="url('back 6.jpg')";
+   document.body.style.color="white";
+   document.getElementById('greetings').innerHTML='Its Time to take Dinner !! ';
+} 
+else {
+    document.body.style.backgroundImage="url('back 7.jpg')";
+   document.body.style.color="white";
+   document.getElementById('greetings').innerHTML='Good Night !! ';
+   document.getElementById('question').innerHTML='How was your day today ?';
+}
+}
+function answer(){
+    let x=document.getElementById('ans').value;
+    document.getElementById('ans').value+=x;
+    document.getElementById('ans').innerHTML=x;
+}
+function Welcome(){
+    document.getElementsByClassName
+}
+
+//Run
+displaytime();
+Welcome();
+grtandimg();
+answer();
+
+    </script>
+</body>
+</html>
